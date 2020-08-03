@@ -1,3 +1,3 @@
 <?php get_header(); ?>
-hi girl!qwe
+hi girl!qw
 <?php get_footer(); ?>
