@@ -1,0 +1,17 @@
+$susy: (
+  "columns": susy-repeat(12),
+  "gutters": vr(0.5)
+);
+
+/* Colors
+==============================================*/
+
+/* Breakpoints
+==============================================*/
+$screen-xxs: 22.5em; // 360px
+$screen-xs: 30em; // 480px
+$screen-s: 40em; // 640px
+$screen-m: 48em; // 768px
+$screen-l: 64em; // 1024px
+$screen-xl: 75em; // 1200px
+$screen-xxl: 85.375em; // 1366px

@@ -1,0 +1,79 @@
+.load-animation div {
+  position: absolute;
+
+  display: block;
+  width: 2em;
+  height: 2em;
+  margin: 0.25em;
+
+  border: 0.25em solid;
+  border-color: #333333 transparent transparent transparent;
+  border-radius: 50%;
+  animation: load-animation 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.load-animation div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.load-animation div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.load-animation div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(101, 200, 45, 0.5);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(101, 200, 45, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(101, 200, 45, 0);
+  }
+}
+
+@keyframes pulse-load-more {
+  0% {
+    box-shadow: 0 0 0 0 rgba(189, 194, 199, 0.5);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(189, 194, 199, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(189, 194, 199, 0);
+  }
+}
+
+.load-animation {
+  display: none;
+  width: 2.5em;
+  height: 2.5em;
+
+  position: absolute;
+  top: calc(50% - 1.25em);
+  left: calc(50% - 1.25em);
+  z-index: 10;
+}
+
+.js-ajax-running .load-animation {
+  display: block;
+}
+
+@keyframes load-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

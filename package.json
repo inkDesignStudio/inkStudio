@@ -1,0 +1,43 @@
+{
+  "name": "fred-repository",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aleksei Piatetskyi",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "9.4.9",
+    "browser-sync": "2.26.3",
+    "css-mqpacker": "7.0.0",
+    "del": "3.0.0",
+    "gulp": "4.0.0",
+    "gulp-cheerio": "0.6.3",
+    "gulp-csso": "3.0.1",
+    "gulp-imagemin": "5.0.3",
+    "gulp-notify": "3.2.0",
+    "gulp-plumber": "1.2.1",
+    "gulp-postcss": "8.0.0",
+    "gulp-rename": "1.4.0",
+    "gulp-replace": "1.0.0",
+    "gulp-sass": "4.0.2",
+    "gulp-sourcemaps": "2.6.5",
+    "gulp-stylelint": "8.0.0",
+    "gulp-svg-sprite": "1.5.0",
+    "gulp-svgmin": "2.1.0",
+    "gulp.spritesmith": "6.9.0",
+    "merge-stream": "1.0.1",
+    "modularscale-sass": "3.0.8",
+    "node-normalize-scss": "8.0.0",
+    "node-sass": "4.11.0",
+    "run-sequence": "2.2.1",
+    "stylelint": "9.10.1",
+    "stylelint-order": "2.0.0",
+    "susy": "3.0.5",
+    "typi": "3.2.0",
+    "vinyl-buffer": "1.0.1"
+  },
+  "dependencies": {}
+}

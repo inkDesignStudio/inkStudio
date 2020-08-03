@@ -1,0 +1,29 @@
+.main-header {
+  display: block;
+}
+
+.portfolio__inner {
+  position: absolute;
+  bottom: 0;
+  height: 30%;
+  visibility: hidden;
+  width: 100%;
+  transition: 0.4s;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+}
+
+.portfolio__title {
+  padding: 2% 0 0 5%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.portfolio_desc {
+  padding: 3%;
+  text-indent: 2%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

@@ -1,0 +1,14 @@
+{
+  "src": {
+    "dir": "./",
+    "components": "./components",
+    "scss": "./scss",
+    "js": "./js",
+    "imgSrc": "./img/src",
+    "imgDest": "./img/dest",
+    "imgSprite": "./img/sprite",
+    "imgSymbols": "./img/symbols"
+  },
+  "domain": "",
+  "themeFolder": "inkStudio"
+}
