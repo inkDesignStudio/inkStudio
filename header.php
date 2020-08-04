@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" class=" sdsds page">
+<html lang="ru" class=" sdsdadssdsds page">
 <head>
    <title>Ink.Studio</title>
    <meta charset="<?php bloginfo('charset'); ?>">
