@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" class=" sdsds page">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>InkDesign</title>
