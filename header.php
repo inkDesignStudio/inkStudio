@@ -1,34 +1,29 @@
 <!DOCTYPE html>
-<html lang="ru" class=" sdsds page">
+<html lang="ru">
 <head>
-   <title>Ink.Studio</title>
-   <meta charset="<?php bloginfo('charset'); ?>">
-   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
-   <link rel="shortcut icon" href="/favicon.ico">
-   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-         rel="stylesheet">
-   <link rel="stylesheet" href="<?= get_template_directory_uri() ?>/style.min.css">
-<!--   <link rel="stylesheet" href="<//?= get_template_directory_uri() ?>/assets/common.css">-->
+    <meta charset="UTF-8">
+    <title>InkDesign</title>
+    <link href="style.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body class="page__body">
-<header>
-   <div class="header_inner">
-      <div class="header_right">
-         <a href="index.html"><img class="logo" src="<?= get_template_directory_uri() ?>/img/src/logo.png"></a>
-         <a href="index.html">
-            <div class="main_title"></div>
-         </a>
-         <div class="line"></div>
-      </div>
-      <nav class="menu_hamburger" role="navigation">
-         <div class="menu_toggle">
-            <span class="menu_span"></span>
-            <span class="menu_span"></span>
-            <span class="menu_span"></span>
-         </div>
-      </nav>
-   </div>
+<body>
+<header class="header">
+    <div class="header__inner">
+        <div class="header__logo_container">
+            <a href="index.html"><img class="header__logo logo" src="assets/img/logo.png"></a>
+            <a href="index.html"><div class="header__title title"></div></a>
+            <div class="header__line line"></div>
+        </div>
+        <nav class="header__menu menu" role="navigation">
+            <div class="menu__toggle">
+                <span class="menu__span"></span>
+                <span class="menu__span"></span>
+                <span class="menu__span"></span>
+            </div>
+        </nav>
+    </div>
 </header>
-
 
 
