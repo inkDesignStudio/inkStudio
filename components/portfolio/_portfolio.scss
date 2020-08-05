@@ -6,7 +6,7 @@
 .portfolio__grid {
   display: grid;
   grid-template-columns: repeat(2,50%);
-  grid-auto-rows: auto;
+  grid-auto-rows: 27vw;
   @media (max-width: $S) {
     grid-template-columns: 100%;
     grid-auto-rows: auto;
@@ -15,28 +15,10 @@
 .grid__item {
   position: relative;
   width: 100%;
-  height: 60vw;
   transition: 1s;
-  &:nth-child(1){
-    background: #000000;
-  }
-  &:nth-child(2){
-    background: url("img/dest/triangle.gif") no-repeat;
-    background-position: 50%;
-    background-size: 110%;
-  }
-  &:nth-child(3){
-    background: #5C6952;
-  }
-  &:nth-child(4){
-    background: #7C7BA4;
-  }
-  &:nth-child(5){
-    background: #000000;
-  }
-  &:nth-child(6){
-    background: #C4C4C4;
-  }
+  background-position: 50%;
+  background-size: 100%;
+  background-repeat: no-repeat;
   &.active {
     background-size: 135%;
   }

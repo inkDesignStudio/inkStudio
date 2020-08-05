@@ -4,13 +4,14 @@ let logo = document.querySelector(".header__logo");
 let headerTitle = document.querySelector(".header__title");
 let headerMenu = document.querySelector('.header__menu');
 let line = document.querySelector('.header__line');
-function lineOpacity() {
-    setInterval(() => line.style.opacity = '1', 800);
-    setInterval(() => line.style.opacity = '0', 1600 );
-}
+
 document.addEventListener("DOMContentLoaded", function() {
     document.body.style.overflow = 'hidden';
     window.scrollTo(0,0);
+    setTimeout(() => smile.style.opacity = "0", 0);
+    setTimeout(() => logo.style.opacity = '0', 0);
+    setTimeout(() => headerMenu.style.opacity = '0', 0);
+    setTimeout(() => line.style.opacity = '0', 0);
     setTimeout(() => smile.style.opacity = "1", 3000);
     setTimeout(() => logo.style.opacity = '1', 3000);
     setTimeout(() => headerMenu.style.opacity = '1', 3000);
