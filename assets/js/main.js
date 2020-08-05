@@ -1,10 +1,12 @@
+/* HAMBURGER */
 let line = document.querySelector('.header__line');
 
 function lineOpacity() {
     setInterval(() => line.style.opacity = '1', 800);
     setInterval(() => line.style.opacity = '0', 1600 );
 }
-/* HAMBURGER */
+setTimeout(lineOpacity, 3000);
+
 let menu = document.querySelector('.menu');
 let menuToggle = document.querySelector('.menu__toggle');
 let spans = document.querySelectorAll('.menu__span');

@@ -22,7 +22,7 @@
                         <div class="item__inner">
                             <h2 class="item__title title"><?php echo $title  ?></h2>
                             <p class="item__subtitle subtitle"><?php echo $subtitle  ?></p>
-                            <a href="item.html" class="item__btn btn">подробнее</a>
+                            <a href="<?php echo get_permalink($id); ?>" class="item__btn btn">подробнее</a>
                         </div>
                     </div>
                 <?php endforeach; ?>

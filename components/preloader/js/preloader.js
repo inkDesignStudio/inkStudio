@@ -21,6 +21,5 @@ document.addEventListener("DOMContentLoaded", function() {
     setTimeout(() => smile.style.backgroundRepeat = "no-repeat", 4000);
     setTimeout(() => headerTitle.classList.add('active'), 4000);
     setTimeout(() => smile.style.backgroundImage = `${themePath}/img/dest/smile_loading.png`, 5000);
-    setTimeout(lineOpacity, 3000);
 });
 /* PRELOADER END */
