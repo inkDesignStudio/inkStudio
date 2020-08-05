@@ -5,7 +5,8 @@ $susy: (
 
 /* Colors
 ==============================================*/
-
+$main_color: #2f6c86;
+$main_unactive: #193947;
 /* Breakpoints
 ==============================================*/
 $screen-xxs: 22.5em; // 360px
@@ -15,3 +16,9 @@ $screen-m: 48em; // 768px
 $screen-l: 64em; // 1024px
 $screen-xl: 75em; // 1200px
 $screen-xxl: 85.375em; // 1366px
+// MEDIA
+$XS: 568px;
+$S: 768px;
+$M: 1240px;
+$L: 1440px;
+// MEDIA END

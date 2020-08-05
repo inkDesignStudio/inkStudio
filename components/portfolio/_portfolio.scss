@@ -1,0 +1,109 @@
+// Portfolio
+.portfolio {
+  width: 100%;
+  height: 100%;
+}
+.portfolio__grid {
+  display: grid;
+  grid-template-columns: repeat(2,50%);
+  grid-auto-rows: auto;
+  @media (max-width: $S) {
+    grid-template-columns: 100%;
+    grid-auto-rows: auto;
+  }
+}
+.grid__item {
+  position: relative;
+  width: 100%;
+  height: 60vw;
+  transition: 1s;
+  &:nth-child(1){
+    background: #000000;
+  }
+  &:nth-child(2){
+    background: url("img/dest/triangle.gif") no-repeat;
+    background-position: 50%;
+    background-size: 110%;
+  }
+  &:nth-child(3){
+    background: #5C6952;
+  }
+  &:nth-child(4){
+    background: #7C7BA4;
+  }
+  &:nth-child(5){
+    background: #000000;
+  }
+  &:nth-child(6){
+    background: #C4C4C4;
+  }
+  &.active {
+    background-size: 135%;
+  }
+}
+.item__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  transition: 0.2s;
+  &:hover .item__btn {
+    opacity: 0.7;
+  }
+  &:hover {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  &:hover .item__title {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  &:hover .item__subtitle {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+.item__title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 80%;
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.0);
+  transition: 0.4s;
+  @media (max-width: $S) {
+    font-size: 24px;
+  }
+}
+.item__subtitle {
+  max-width: 85%;
+  max-height: 27%;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.0);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  margin-bottom: 30px;
+  transition: 0.4s;
+  @media (max-width: $S) {
+    font-size: 14px;
+  }
+}
+.item__btn {
+  color: rgba(255, 255, 255, 0.7);
+  opacity: 0;
+  border: 2px solid #FFFFFF;
+  background-color: rgba(0, 0, 0, 0.0);
+  &:hover {
+    opacity: 1;
+  }
+  @media (max-width: $XS) {
+    opacity: 0.7;
+  }
+  @media (max-width: $S) {
+    opacity: 0.7;
+  }
+}
+// Portfolio END

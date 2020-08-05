@@ -2,6 +2,63 @@
 /*
  * inkStudio functions and definitions
  */
+include_once (__DIR__.'/inc/first-marquee-widget.php');
+
+add_action('init', 'spReg');
+
+add_filter('show_admin_bar', '__return_false');
+
+function getImage( $name ) {
+    echo get_template_directory_uri() . '/img/dest/' . $name;
+}
+
+function spReg() {
+    register_post_type('works', array(
+        'labels'              => array(
+            'name'          => 'Работы',
+            'singular_name' => 'Работа',
+            'menu_name'     => 'Архив работ',
+            'all_items'     => 'Все работы',
+            'add_new'       => 'Добавить работу',
+            'add_new_item'  => 'Добавить новую работу',
+            'edit'          => 'Редактировать',
+            'edit_item'     => 'Редактировать работу',
+            'new_item'      => 'Новая работа',
+        ),
+        'description'         => '',
+        'public'              => true,
+        'show_in_menu'        => true,
+        'exclude_from_search' => false,
+        'capability_type'     => 'post',
+        'hierarchical'        => false,
+        'has_archive'         => 'works',
+        'supports'            => array( 'title', 'thumbnail' ),
+        'taxonomies'          => array( 'works-category' ),
+    ) );
+    register_taxonomy('works-category', array('works'), array(
+        'label'                 => 'Раздел работ', // определяется параметром $labels->name
+        'labels'                => array(
+            'name'              => 'Разделы работ',
+            'singular_name'     => 'Раздел работ',
+            'search_items'      => 'Искать Раздел работ',
+            'all_items'         => 'Все Разделы работ',
+            'parent_item'       => 'Родит. раздел работ',
+            'parent_item_colon' => 'Родит. раздел работ:',
+            'edit_item'         => 'Ред. Раздел работ',
+            'update_item'       => 'Обновить Раздел работ',
+            'add_new_item'      => 'Добавить Раздел работ',
+            'new_item_name'     => 'Новый Раздел работ',
+            'menu_name'         => 'Раздел работ',
+        ),
+        'description'           => 'Рубрики для раздела работ', // описание таксономии
+        'public'                => true,
+        'show_in_nav_menus'     => false, // равен аргументу public
+        'show_ui'               => true, // равен аргументу public
+        'show_tagcloud'         => false, // равен аргументу show_ui
+        'hierarchical'          => true,
+        'show_admin_column'     => true, // Позволить или нет авто-создание колонки таксономии в таблице ассоциированного типа записи. (с версии 3.5)
+    ) );
+}
 
 function getCurrentCatID()
 {
@@ -21,11 +78,12 @@ if ( ! function_exists( 'sp_setup' ) ) :
       add_theme_support( 'automatic-feed-links' );
       add_theme_support( 'title-tag' );
       add_theme_support( 'post-thumbnails' );
-
+//      add_theme_support( 'custom-logo' );
 
       register_nav_menus( array(
          'menu-1' => esc_html__( 'Primary', 'inkStudio-theme' ),
       ) );
+      register_nav_menu('menu-overlay', 'Main navigation menu');
 
       add_theme_support( 'html5', array(
          'search-form',
@@ -62,15 +120,23 @@ add_action( 'after_setup_theme', 'sp_content_width', 0 );
 
 //Register widget area.
 function sp_widgets_init() {
-   register_sidebar( array(
-      'name'          => esc_html__( 'Sidebar', 'inkStudio-theme' ),
-      'id'            => 'sidebar-1',
-      'description'   => esc_html__( 'Add widgets here.', 'inkStudio-theme' ),
-      'before_widget' => '<section id="%1$s" class="widget %2$s">',
-      'after_widget'  => '</section>',
-      'before_title'  => '<h2 class="widget-title">',
-      'after_title'   => '</h2>',
-   ));
+    register_sidebar([
+        'name'          => 'Первая бегущая строка',
+        'id'            => 'first-marquee',
+        'description'   => 'Первая бегущая строка',
+        'before_widget' => null,
+        'after_widget'  => null,
+    ]);
+    register_widget('first_marquee_widget');
+//   register_sidebar( array(
+//      'name'          => esc_html__( 'Sidebar', 'inkStudio-theme' ),
+//      'id'            => 'sidebar-1',
+//      'description'   => esc_html__( 'Add widgets here.', 'inkStudio-theme' ),
+//      'before_widget' => '<section id="%1$s" class="widget %2$s">',
+//      'after_widget'  => '</section>',
+//      'before_title'  => '<h2 class="widget-title">',
+//      'after_title'   => '</h2>',
+//   ));
 }
 add_action( 'widgets_init', 'sp_widgets_init' );
 
