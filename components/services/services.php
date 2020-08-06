@@ -1,4 +1,4 @@
-<section class="section services">
+<section id="services" class="section services">
     <div class="services__container">
         <div class="services__card">
             <div class="services__tab"><h2 class="tab__title">лого</h2></div>

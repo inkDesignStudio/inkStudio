@@ -3,6 +3,7 @@
  * inkStudio functions and definitions
  */
 include_once (__DIR__.'/inc/first-marquee-widget.php');
+include_once (__DIR__.'/inc/second-marquee-widget.php');
 
 add_action('init', 'spReg');
 
@@ -15,7 +16,7 @@ function getImage( $name ) {
 function spReg() {
     register_post_type('works', array(
         'labels'              => array(
-            'name'          => 'Работы',
+            'name'          => 'Наши работы',
             'singular_name' => 'Работа',
             'menu_name'     => 'Архив работ',
             'all_items'     => 'Все работы',
@@ -121,13 +122,21 @@ add_action( 'after_setup_theme', 'sp_content_width', 0 );
 //Register widget area.
 function sp_widgets_init() {
     register_sidebar([
-        'name'          => 'Первая бегущая строка',
+        'name'          => 'ТЕКСТ ПЕРВОЙ БЕГУЩЕЙ СТРОКИ',
         'id'            => 'first-marquee',
-        'description'   => 'Первая бегущая строка',
+        'description'   => 'НЕ добавляйте новые виджеты. Активны только виджеты inkDesign',
         'before_widget' => null,
         'after_widget'  => null,
     ]);
     register_widget('first_marquee_widget');
+    register_sidebar([
+        'name'          => 'ТЕКСТ ВТОРОЙ БЕГУЩЕЙ СТРОКИ',
+        'id'            => 'second-marquee',
+        'description'   => 'НЕ добавляйте новые виджеты. Активны только виджеты inkDesign\'',
+        'before_widget' => null,
+        'after_widget'  => null,
+    ]);
+    register_widget('second_marquee_widget');
 //   register_sidebar( array(
 //      'name'          => esc_html__( 'Sidebar', 'inkStudio-theme' ),
 //      'id'            => 'sidebar-1',
@@ -141,7 +150,14 @@ function sp_widgets_init() {
 add_action( 'widgets_init', 'sp_widgets_init' );
 
 //Enqueue scripts and styles.
-//function sp_scripts() {
+function sp_scripts() {
+    wp_enqueue_style(
+        'style.min.css',
+        get_template_directory_uri().'/style.min.css',
+        [],
+        '1.0.4',
+        'all'
+    );
 //   wp_enqueue_style('bootstrap', get_template_directory_uri().'/css/bootstrap.css');
 //   wp_enqueue_style('cms-style', get_stylesheet_uri() );
 //   wp_enqueue_style('mediascreen', get_template_directory_uri().'/css/mediascreen.css');
@@ -149,6 +165,13 @@ add_action( 'widgets_init', 'sp_widgets_init' );
 //   wp_enqueue_style('animate', get_template_directory_uri().'/css/animate.css');
 //   wp_enqueue_style('fontawesome', get_template_directory_uri().'/css/fontawesome-all.css');
 //
+//    wp_enqueue_script(
+//        'main.js',
+//        get_template_directory_uri().'/assets/main.js',
+//        [],
+//        '1.0.0',
+//        true
+//    );
 //   wp_enqueue_script('jquery');
 //   wp_enqueue_script('swiper', get_template_directory_uri().'/js/swiper.js');
 //   wp_enqueue_script('wow', get_template_directory_uri().'/js/wow.js');
@@ -158,8 +181,8 @@ add_action( 'widgets_init', 'sp_widgets_init' );
 //   if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 //      wp_enqueue_script( 'comment-reply' );
 //   }
-//}
-//add_action( 'wp_enqueue_scripts', 'sp_scripts' );
+}
+add_action( 'wp_enqueue_scripts', 'sp_scripts' );
 function get_component($file, $params = null, $return = false)
 {
    $class     = !empty($params['class']) ? ' ' . $params['class'] : '';

@@ -1,13 +1,13 @@
 <?php
-class First_Marquee_Widget extends WP_Widget {
+class Second_Marquee_Widget extends WP_Widget {
 
     public function __construct()
     {
         $args = array(
-            'name' => 'inkDesign - первая бегущая строка',
-            'description' => 'первая бегущая строка'
+            'name' => 'inkDesign - вторая бегущая строка',
+            'description' => 'вторая бегущая строка'
         );
-        parent::__construct('first_marquee_widget', '', $args);
+        parent::__construct('second_marquee_widget', '', $args);
     }
 
     public function form($instance){?>

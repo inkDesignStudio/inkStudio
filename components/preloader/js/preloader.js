@@ -1,9 +1,7 @@
 /* PRELOADER */
 let smile = document.querySelector(".preloader__smile");
 let logo = document.querySelector(".header__logo");
-let headerTitle = document.querySelector(".header__title");
 let headerMenu = document.querySelector('.header__menu');
-let line = document.querySelector('.header__line');
 
 document.addEventListener("DOMContentLoaded", function() {
     document.body.style.overflow = 'hidden';

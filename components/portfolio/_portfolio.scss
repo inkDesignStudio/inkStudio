@@ -1,7 +1,12 @@
 // Portfolio
 .portfolio {
   width: 100%;
-  height: 100%;
+}
+.portfolio__margin_top {
+  padding-top: 93px;
+  @media (max-width: $S) {
+    padding-top: 67px;
+  }
 }
 .portfolio__grid {
   display: grid;
@@ -9,7 +14,7 @@
   grid-auto-rows: 27vw;
   @media (max-width: $S) {
     grid-template-columns: 100%;
-    grid-auto-rows: auto;
+    grid-auto-rows: 56vw;
   }
 }
 .grid__item {
@@ -22,6 +27,19 @@
   &.active {
     background-size: 135%;
   }
+}
+.portfolio__work {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding-top: 93px;
+  @media (max-width: $S) {
+    padding-top: 67px;
+  }
+}
+.portfolio__image {
+  width: 100%;
+  height: 100%;
 }
 .item__inner {
   display: flex;

@@ -1,11 +1,15 @@
 /* HAMBURGER */
 let line = document.querySelector('.header__line');
+let headerTitle = document.querySelector(".header__title");
 
 function lineOpacity() {
-    setInterval(() => line.style.opacity = '1', 800);
-    setInterval(() => line.style.opacity = '0', 1600 );
+    setTimeout(function () {
+        setInterval(() => line.style.opacity = '1', 800);
+        setInterval(() => line.style.opacity = '0', 1600 );
+        setTimeout(() => headerTitle.classList.add('active'), 2000);
+    }, 1000)
 }
-setTimeout(lineOpacity, 3000);
+document.addEventListener("DOMContentLoaded", lineOpacity);
 
 let menu = document.querySelector('.menu');
 let menuToggle = document.querySelector('.menu__toggle');
@@ -27,7 +31,7 @@ links.forEach(element => element.addEventListener('click', function () {
     menuToggle.classList.toggle('on');
     spans.forEach(element => element.classList.toggle('on'));
     links.forEach(element => element.classList.toggle('on'));
-    overlay.classList.toggle('overlay');
+    overlay.classList.toggle('active');
     overlayIcons.classList.toggle('on');
     languageSwitcher.classList.toggle('on');
 }))
