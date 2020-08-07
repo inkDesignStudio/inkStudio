@@ -14,7 +14,7 @@
                 <input name="client-email" class="contact__input contact__input_email" placeholder="*электронная почта" type="email" tabindex="2" required>
             </div>
             <input name="client-phone" class="contact__input contact__input_phone" placeholder="*номер телефона" type="tel" tabindex="3" required>
-            <textarea name="client-comment" class="contact__input contact__input_comment" placeholder="*комментарий" tabindex="5" required></textarea>
+            <textarea name="client-comment" class="contact__input contact__input_comment" placeholder="*комментарий" tabindex="5" ></textarea>
             <button name="submit" type="submit" class="btn contact__btn" data-submit="...Sending">отправить</button>
         </div>
     </form>
