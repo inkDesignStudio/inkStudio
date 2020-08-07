@@ -24,7 +24,6 @@
         </div>
     </div>
 </footer>
-<script type="text/javascript" src="<?= get_template_directory_uri() ?>/assets/js/main.js"></script>
 <?php wp_footer(); ?>
 </body>
 </html>

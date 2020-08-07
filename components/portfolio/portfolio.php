@@ -10,6 +10,7 @@
             <?php
                 $query = new WP_Query([
                         'post_type' => 'works',
+                        'post_per_page' => 6,
                         'work-category' => $term->slug
                 ]);
                 $posts = $query->posts;

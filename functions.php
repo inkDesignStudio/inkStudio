@@ -7,10 +7,34 @@ include_once (__DIR__.'/inc/second-marquee-widget.php');
 
 add_action('init', 'spReg');
 
+add_action('wp_ajax_order_data', 'newOrder');
+add_action('wp_ajax_nopriv_order_data', 'newOrder');
+
 add_filter('show_admin_bar', '__return_false');
 
 function getImage( $name ) {
     echo get_template_directory_uri() . '/img/dest/' . $name;
+}
+
+function newOrder() {
+    $name = wp_strip_all_tags($_POST['client-name']);
+    $email = wp_strip_all_tags($_POST['client-email']);
+    $phone = wp_strip_all_tags($_POST['client-phone']);
+    $comment = wp_strip_all_tags($_POST['client-comment']);
+    $service = wp_strip_all_tags($_POST['client-service']);
+    $id = wp_insert_post( wp_slash([
+        'post_title' => 'Заявка на: ' .$service,
+        'post_type' => 'orders',
+        'post_status' => 'publish',
+        'meta_input' => [
+            'wpcf-client-name' => $name,
+            'wpcf-client-email' => $email,
+            'wpcf-client-phone' => $phone,
+            'wpcf-client-comment' => $comment,
+            'wpcf-client-service' => $service,
+        ]
+    ]));
+    wp_die();
 }
 
 function spReg() {
@@ -35,6 +59,7 @@ function spReg() {
         'has_archive'         => 'works',
         'supports'            => array( 'title', 'thumbnail' ),
         'taxonomies'          => array( 'works-category' ),
+        'menu_icon'           => 'http://www.inkdesign.studio/wp-content/uploads/2020/08/small_icon.png',
     ) );
     register_taxonomy('works-category', array('works'), array(
         'label'                 => 'Раздел работ', // определяется параметром $labels->name
@@ -58,6 +83,75 @@ function spReg() {
         'show_tagcloud'         => false, // равен аргументу show_ui
         'hierarchical'          => true,
         'show_admin_column'     => true, // Позволить или нет авто-создание колонки таксономии в таблице ассоциированного типа записи. (с версии 3.5)
+    ) );
+    register_post_type('services', array(
+        'labels'              => array(
+            'name'          => 'Наши услуги',
+            'singular_name' => 'Услуги',
+            'menu_name'     => 'Архив услуг',
+            'all_items'     => 'Все услуги',
+            'add_new'       => 'Добавить услуги',
+            'add_new_item'  => 'Добавить новые услуги',
+            'edit'          => 'Редактировать',
+            'edit_item'     => 'Редактировать услуги',
+            'new_item'      => 'Новые услуги',
+        ),
+        'description'         => '',
+        'public'              => true,
+        'show_in_menu'        => true,
+        'exclude_from_search' => false,
+        'capability_type'     => 'post',
+        'hierarchical'        => false,
+        'has_archive'         => 'services',
+        'supports'            => array('title'),
+        'taxonomies'          => array( 'services-category' ),
+        'menu_icon'           => 'http://www.inkdesign.studio/wp-content/uploads/2020/08/small_icon.png',
+    ) );
+    register_taxonomy('services-category', array('services'), array(
+        'label'                 => 'Раздел услуг', // определяется параметром $labels->name
+        'labels'                => array(
+            'name'              => 'Разделы услуг',
+            'singular_name'     => 'Раздел услуги',
+            'search_items'      => 'Искать Раздел услуги',
+            'all_items'         => 'Все Разделы услуг',
+            'parent_item'       => 'Родит. раздел услуг',
+            'parent_item_colon' => 'Родит. раздел услуг:',
+            'edit_item'         => 'Ред. Раздел услуг',
+            'update_item'       => 'Обновить Раздел услуг',
+            'add_new_item'      => 'Добавить Раздел услуг',
+            'new_item_name'     => 'Новый Раздел услуг',
+            'menu_name'         => 'Раздел услуг',
+        ),
+        'description'           => 'Рубрики для раздела услуг', // описание таксономии
+        'public'                => true,
+        'show_in_nav_menus'     => false, // равен аргументу public
+        'show_ui'               => true, // равен аргументу public
+        'show_tagcloud'         => false, // равен аргументу show_ui
+        'hierarchical'          => true,
+        'show_admin_column'     => true, // Позволить или нет авто-создание колонки таксономии в таблице ассоциированного типа записи. (с версии 3.5)
+    ) );
+
+    register_post_type('orders', array(
+        'labels'              => array(
+            'name'          => 'Заказы',
+            'singular_name' => 'Заказ',
+            'menu_name'     => 'Архив заказов',
+            'all_items'     => 'Все заказы',
+            'add_new'       => 'Добавить заказ',
+            'add_new_item'  => 'Добавить новый заказ',
+            'edit'          => 'Редактировать',
+            'edit_item'     => 'Редактировать заказ',
+            'new_item'      => 'Новый заказ',
+        ),
+        'description'         => '',
+        'public'              => true,
+        'show_in_menu'        => true,
+        'exclude_from_search' => false,
+        'capability_type'     => 'post',
+        'hierarchical'        => false,
+        'has_archive'         => 'orders',
+        'supports'            => array('title'),
+        'menu_icon'           => 'http://www.inkdesign.studio/wp-content/uploads/2020/08/small_icon.png',
     ) );
 }
 
@@ -172,7 +266,21 @@ function sp_scripts() {
 //        '1.0.0',
 //        true
 //    );
-//   wp_enqueue_script('jquery');
+    wp_enqueue_script(
+        'main.js',
+        get_template_directory_uri() . '/assets/js/main.js',
+        [],
+        '1.0.1',
+        true
+    );
+    wp_enqueue_script(
+        'services--contact-form.js',
+        get_template_directory_uri() . '/components/services--contact-form/js/services--contact-form.js',
+        [],
+        '1.0.0',
+        true
+    );
+    wp_enqueue_script('jquery');
 //   wp_enqueue_script('swiper', get_template_directory_uri().'/js/swiper.js');
 //   wp_enqueue_script('wow', get_template_directory_uri().'/js/wow.js');
 //   wp_enqueue_script('lazyload', get_template_directory_uri().'/js/lazyload.js');

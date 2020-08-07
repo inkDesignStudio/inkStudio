@@ -1,3 +1,19 @@
+// Contact
+let contact = document.querySelector('.contact');
+let contactClose = document.querySelector('.contact__close');
+let serviceTypeInput = document.querySelector('.service_type');
+let contactBtn = document.querySelector('.contact__btn');
+
+contactClose.addEventListener('click', function () {
+    contact.classList.remove('active');
+})
+// contactBtn.addEventListener('click', function () {
+//     setTimeout(() => contact.classList.remove('active'), 1200);
+// })
+
+
+// Contact END
+
 /* HAMBURGER */
 let line = document.querySelector('.header__line');
 let headerTitle = document.querySelector(".header__title");
@@ -36,54 +52,6 @@ links.forEach(element => element.addEventListener('click', function () {
     languageSwitcher.classList.toggle('on');
 }))
 /* HAMBURGER END */
-/* SERVICES */
-let servicesCards = document.querySelectorAll('.services__card');
-let servicesTabs = document.querySelectorAll('.services__tab');
-let servicesContents = document.querySelectorAll('.services__content');
-let contentWrapper = document.querySelectorAll('.content__wrapper');
-
-function removeTabClasses() {
-    servicesTabs.forEach(tab => tab.classList.remove('current'));
-}
-function elevateTabs() {
-    servicesTabs.forEach(tab => tab.classList.add('active'));
-}
-function revealContent() {
-    servicesContents.forEach(content => content.classList.add('active'));
-}
-function hideContentWrapper() {
-    contentWrapper.forEach(wrapper => wrapper.classList.remove('active'));
-}
-
-function removeBorders() {
-    servicesCards.forEach(card => card.style.border = 'none');
-}
-
-
-servicesTabs.forEach(function (tab) {
-    tab.addEventListener('click', function () {
-        elevateTabs();
-        removeTabClasses();
-        revealContent();
-        removeBorders();
-        hideContentWrapper();
-        if (tab === servicesTabs[0]){
-            setTimeout(() => contentWrapper[0].classList.add('active'), 500);
-            setTimeout(() => contentWrapper[1].classList.add('active'), 1000);
-            setTimeout(() => contentWrapper[2].classList.add('active'), 1500);
-        } else if (tab === servicesTabs[1]) {
-            setTimeout(() => contentWrapper[1].classList.add('active'), 500);
-            setTimeout(() => contentWrapper[0].classList.add('active'), 1000);
-            setTimeout(() => contentWrapper[2].classList.add('active'), 1500);
-        } else if (tab === servicesTabs[2]) {
-            setTimeout(() => contentWrapper[2].classList.add('active'), 500);
-            setTimeout(() => contentWrapper[1].classList.add('active'), 1000);
-            setTimeout(() => contentWrapper[0].classList.add('active'), 1500);
-        }
-        tab.classList.add('current');
-    })
-})
-/* SERVICES END */
 /* PORTFOLIO */
 let gridItems = document.querySelectorAll('.grid__item');
 
@@ -99,19 +67,3 @@ gridItems.forEach(function (gridItem) {
     gridItem.addEventListener('mouseout', initialBg);
 })
 /* PORTFOLIO END */
-// Contact
-
-let servicesBtns = document.querySelectorAll('.services__btn');
-let contact = document.querySelector('.contact');
-let contactClose = document.querySelector('.contact__close');
-
-servicesBtns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-        contact.classList.add('active');
-    })
-})
-contactClose.addEventListener('click', function () {
-    contact.classList.remove('active');
-})
-
-// Contact END
