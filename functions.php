@@ -249,7 +249,7 @@ function sp_scripts() {
         'style.min.css',
         get_template_directory_uri().'/style.min.css',
         [],
-        '1.0.4',
+        '1.0.7',
         'all'
     );
 //   wp_enqueue_style('bootstrap', get_template_directory_uri().'/css/bootstrap.css');

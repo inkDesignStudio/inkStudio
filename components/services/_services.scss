@@ -24,6 +24,9 @@
   @media (max-width: $S) {
     height: 300px;
   }
+  @media (max-width: $M) {
+    height: 440px;
+  }
   &:hover {
     cursor: pointer;
     transform: scale(0.9);
