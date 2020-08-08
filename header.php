@@ -12,8 +12,8 @@
     <div class="header__inner">
         <div class="header__logo_container">
             <a href="<? echo home_url(); ?>"><picture><source srcset="<?= getImage('logo.webp') ?>" type="image/webp"><img class="header__logo logo" src="<?= getImage('logo.png') ?>"></picture></a>
-            <a href="<? echo home_url(); ?>""><div class="header__title title"></div></a>
-            <div class="header__line line"></div>
+            <a href="<? echo home_url(); ?>""><div class="header__title title active"></div></a>
+            <div class="header__line line active"></div>
         </div>
         <nav class="header__menu menu" role="navigation">
             <div class="menu__toggle">

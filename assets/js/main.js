@@ -1,31 +1,6 @@
-// Contact
-let contact = document.querySelector('.contact');
-let contactClose = document.querySelector('.contact__close');
-let serviceTypeInput = document.querySelector('.service_type');
-let contactBtn = document.querySelector('.contact__btn');
-
-contactClose.addEventListener('click', function () {
-    contact.classList.remove('active');
-})
-// contactBtn.addEventListener('click', function () {
-//     setTimeout(() => contact.classList.remove('active'), 1200);
-// })
-
-
-// Contact END
-
 /* HAMBURGER */
 let line = document.querySelector('.header__line');
 let headerTitle = document.querySelector(".header__title");
-
-function lineOpacity() {
-    setTimeout(function () {
-        setInterval(() => line.style.opacity = '1', 800);
-        setInterval(() => line.style.opacity = '0', 1600 );
-        setTimeout(() => headerTitle.classList.add('active'), 2000);
-    }, 1000)
-}
-document.addEventListener("DOMContentLoaded", lineOpacity);
 
 let menu = document.querySelector('.menu');
 let menuToggle = document.querySelector('.menu__toggle');

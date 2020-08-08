@@ -249,7 +249,7 @@ function sp_scripts() {
         'style.min.css',
         get_template_directory_uri().'/style.min.css',
         [],
-        '1.0.7',
+        '1.1.5',
         'all'
     );
 //   wp_enqueue_style('bootstrap', get_template_directory_uri().'/css/bootstrap.css');
@@ -270,7 +270,7 @@ function sp_scripts() {
         'main.js',
         get_template_directory_uri() . '/assets/js/main.js',
         [],
-        '1.0.1',
+        '1.0.4',
         true
     );
     wp_enqueue_script(

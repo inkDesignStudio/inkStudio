@@ -1,6 +1,12 @@
 let contactInner = document.querySelector('.contact__inner');
 let contactTitle = document.querySelector('.contact__title');
 let contactSubtitle = document.querySelector('.contact__subtitle');
+let contact = document.querySelector('.contact');
+let contactClose = document.querySelector('.contact__close');
+let serviceTypeInput = document.querySelector('.service_type');
+contactClose.addEventListener('click', function () {
+    contact.classList.remove('active');
+})
 
 jQuery(document).ready(function ($) {
     window.addEventListener('load', function () {
