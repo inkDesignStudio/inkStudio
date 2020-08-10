@@ -1,11 +1,14 @@
-@import "normalize";
-@import "modularscale";
-@import "typi";
-@import "susy";
-@import "typography";
+//@import "normalize";
+//@import "modularscale";
+//@import "typi";
+//@import "susy";
+//@import "typography";
+@import "nullstyle";
 @import "variables";
-@import "mixins";
-@import "utils";
+@import "fonts";
+@import "animations";
+//@import "mixins";
+//@import "utils";
 // @import "sprite-svg";
 // @import "sprite-png";
 
@@ -16,5 +19,12 @@
 //@import "../components/main-footer/main-footer";
 //@import "../components/card/card";
 //@import "../components/card-list/card-list";
-@import "../assets/common";
-@import "../components/main-header/main-header";
+@import "../components/header/header";
+@import "../components/footer/footer";
+@import "../components/overlay/overlay";
+@import "../components/services/services";
+@import "../components/services--contact-form/services--contact-form";
+@import "../components/portfolio/portfolio";
+@import "../components/block/block";
+@import "../components/marquee/marquee";
+@import "../components/preloader/preloader";

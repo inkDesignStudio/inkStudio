@@ -25,6 +25,7 @@ const
   postcss = require('gulp-postcss'),
   autoprefixer = require('autoprefixer'),
   mqpacker = require('css-mqpacker'),
+    group_media = require('gulp-group-css-media-queries'),
   gulpStylelint = require('gulp-stylelint');
 
 const reload = (done) => {
@@ -134,7 +135,7 @@ gulp.task('sprite:svg', () => {
 /* Компиляция стилевого файла
 ==============================================*/
 gulp.task('style:compile', () => {
-  return gulp.src([src.components + '/**/*.scss', src.scss + '/*.scss'])
+  return gulp.src([src.scss + '/*.scss', src.components + '/**/*.scss'])
     .pipe(plumber({
       errorHandler: function(err) {
         notify.onError({
@@ -155,6 +156,7 @@ gulp.task('style:compile', () => {
         'node_modules/modularscale-sass/stylesheets'
       ]
     }))
+      .pipe(group_media())
     .pipe(sourceMaps.write())
     .pipe(postcss([
       autoprefixer(['last 3 version']),

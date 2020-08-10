@@ -1,0 +1,233 @@
+// Services
+.services {
+  background-color: #000;
+  overflow: hidden;
+}
+.services__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  overflow: hidden;
+  &.active {
+    background-color: $main_color;
+  }
+  @media (max-width: $XS) {
+    flex-direction: column;
+  }
+}
+.services__tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 644px;
+  width: 100%;
+  background-color: $main_color;
+  transition: 0.7s;
+  @media (max-width: $S) {
+    height: 300px;
+  }
+  @media (max-width: $M) {
+    height: 440px;
+  }
+  &:hover {
+    cursor: pointer;
+    transform: scale(0.9);
+  }
+  .tab__title {
+    transition: 0.2s;
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 48px;
+    color: #FFFFFF;
+    @media (max-width: $XS) {
+      font-size: 18px;
+    }
+    @media (max-width: $S) {
+      font-size: 18px;
+    }
+    @media (max-width: $M) {
+      font-size: 28px;
+    }
+  }
+  &.active {
+    position: initial;
+    height: 100px;
+    background-color: $main_unactive;
+    &:hover{
+      transform: none;
+    }
+    .tab__title {
+      color: rgba(47, 108, 134, 0.7);
+    }
+    &.current {
+      background-color: $main_color;
+      &:hover {
+        cursor: default;
+      }
+      .tab__title {
+        color: #FFFFFF;
+      }
+    }
+    @media (max-width: $XS) {
+      height: auto;
+      width: 20%;
+      .tab__title {
+        transform: rotate(-90deg);
+      }
+    }
+    @media (max-width: $S) {
+      height: 70px;
+    }
+    @media (max-width: $M) {
+      height: 85px;
+    }
+  }
+  @media (max-width: $XS) {
+    height: auto;
+    width: 100vw;
+  }
+}
+.services__card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 33.333%;
+  border-right: 1px solid #000000;
+  &:last-child {
+    border-right: none;
+  }
+  @media (max-width: $XS) {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border-right: none;
+    border-bottom: 1px solid #000000;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+.services__content {
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.7s;
+  height: 0;
+  background-color: $main_color;
+  &.active {
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+    @media (max-width: $XS) {
+      width: 80%;
+      height: 100%;
+    }
+  }
+  @media (max-width: $XS) {
+    width: 0;
+    height: 240px;
+  }
+}
+.content__wrapper {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 25px 80px;
+  opacity: 0;
+  transition: 0.5s;
+  transform: translateY(100px);
+  @media (max-width: $S) {
+    padding: 25px 15px 40px;
+  }
+  @media (max-width: $M) {
+    padding: 35px 25px 55px;
+  }
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (max-width: $XS) {
+    transform: translateX(50px);
+    &.active {
+      transform: translateX(0);
+    }
+    @media (max-width: $XS) {
+      padding: 8px 25px;
+    }
+  }
+}
+.services__image {
+  max-width: 145px;
+  margin-bottom: 14px;
+  @media (max-width: $XS) {
+    max-width: 36px;
+    margin-bottom: 5px;
+  }
+  @media (max-width: $S) {
+    max-width: 48px;
+    margin-bottom: 10px;
+  }
+  @media (max-width: $M) {
+    max-width: 54px;
+    margin-bottom: 15px;
+  }
+}
+.services__title {
+  color: #FFFFFF;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  margin-bottom: 25px;
+  &:last-of-type{
+    margin-top: 25px;
+  }
+  @media (max-width: $S) {
+    font-size: 14px;
+    margin-bottom: 10px;
+    &:last-of-type {
+      margin-top: 10px;
+    }
+  }
+  @media (max-width: $M) {
+    font-size: 24px;
+    margin-bottom: 10px;
+    &:last-of-type {
+      margin-top: 10px;
+    }
+  }
+}
+.services__subtitle {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  @media (max-width: $S) {
+    font-size: 14px;
+    margin-bottom: 5px;
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+  @media (max-width: $M) {
+    font-size: 18px;
+    margin-bottom: 8px;
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+}
+.services__btn {
+  color: $main_color;
+  background-color: #000;
+  &:hover {
+    color: #FFFFFF;
+  }
+}
+// Service END
