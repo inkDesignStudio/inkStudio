@@ -4,6 +4,8 @@ let contactSubtitle = document.querySelector('.contact__subtitle');
 let contact = document.querySelector('.contact');
 let contactClose = document.querySelector('.contact__close');
 let serviceTypeInput = document.querySelector('.service_type');
+let contactInputs = document.querySelectorAll('.contact__input');
+
 contactClose.addEventListener('click', function () {
     contact.classList.remove('active');
 })
@@ -32,7 +34,9 @@ jQuery(document).ready(function ($) {
                     contactSubtitle.innerText = 'Мы получили Вашу заявку! :)'
                     contactInner.style.display = 'none';
                     contactClose.style.display = 'none';
-
+                    contactInputs.forEach(function (input) {
+                        input.value = '';
+                    })
                 }
             )
         })

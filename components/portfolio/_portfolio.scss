@@ -11,9 +11,10 @@
 .portfolio__grid {
   display: grid;
   grid-template-columns: repeat(2,50%);
-  grid-auto-rows: auto;
+  grid-auto-rows: 27.5vw;
   @media (max-width: $S) {
     grid-template-columns: 100%;
+    grid-auto-rows: auto;
   }
   background-color: #000000;
 }

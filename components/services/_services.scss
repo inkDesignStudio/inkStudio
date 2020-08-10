@@ -9,7 +9,9 @@
   justify-content: space-between;
   align-items: baseline;
   overflow: hidden;
-  background-color: $main_color;
+  &.active {
+    background-color: $main_color;
+  }
   @media (max-width: $XS) {
     flex-direction: column;
   }
@@ -111,8 +113,8 @@
   visibility: hidden;
   opacity: 0;
   transition: 0.7s;
-  background-color: $main_color;
   height: 0;
+  background-color: $main_color;
   &.active {
     height: auto;
     opacity: 1;

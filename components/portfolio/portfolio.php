@@ -24,9 +24,13 @@
                         <div class="grid__item">
                             <img class="grid__preview grid__preview_img" src="<?php echo the_post_thumbnail_url($id, 'full'); ?>'">
                             <div class="item__inner">
-                                <h2 class="item__title title"><?php echo $title  ?></h2>
-                                <p class="item__subtitle subtitle"><?php echo $subtitle  ?></p>
-                                <a href="<?php echo get_permalink($id); ?>" class="item__btn btn">подробнее</a>
+                                <?php if (!empty($title)) { ?>
+                                    <h2 class="item__title title"><?php echo $title  ?></h2>
+                                <?php } ?>
+                                <?php if (!empty($subtitle)) { ?>
+                                    <p class="item__subtitle subtitle"><?php echo $subtitle  ?></p>
+                                    <a href="<?php echo get_permalink($id); ?>" class="item__btn btn">подробнее</a>
+                                <?php } ?>
                             </div>
                         </div>
                      <?php } elseif ( has_post_thumbnail($id) === false ) { ?>
@@ -35,9 +39,13 @@
                                 <source src="<?= $videoPreview ?>" type="video/mp4">
                             </video>
                             <div class="item__inner">
-                                <h2 class="item__title title"><?php echo $title  ?></h2>
-                                <p class="item__subtitle subtitle"><?php echo $subtitle  ?></p>
-                                <a href="<?php echo get_permalink($id); ?>" class="item__btn btn">подробнее</a>
+                                <?php if (!empty($title)) { ?>
+                                    <h2 class="item__title title"><?php echo $title  ?></h2>
+                                <?php } ?>
+                                <?php if (!empty($subtitle)) { ?>
+                                    <p class="item__subtitle subtitle"><?php echo $subtitle  ?></p>
+                                    <a href="<?php echo get_permalink($id); ?>" class="item__btn btn">подробнее</a>
+                                <?php } ?>
                             </div>
                         </div>
                      <?php } ?>

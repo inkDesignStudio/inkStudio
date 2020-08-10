@@ -1,6 +1,7 @@
 /* SERVICES */
 let servicesBtns = document.querySelectorAll('.services__btn');
 
+let servicesContainer = document.querySelector('.services__container');
 let servicesCards = document.querySelectorAll('.services__card');
 let servicesTabs = document.querySelectorAll('.services__tab');
 let servicesContents = document.querySelectorAll('.services__content');
@@ -32,6 +33,7 @@ function removeBorders() {
 
 servicesTabs.forEach(function (tab) {
     tab.addEventListener('click', function () {
+        servicesContainer.classList.add('active');
         elevateTabs();
         removeTabClasses();
         revealContent();
