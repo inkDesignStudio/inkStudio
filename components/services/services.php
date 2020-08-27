@@ -7,6 +7,7 @@
     $posts = $query->posts;
     foreach ( $posts as $post ):
     $id = $post->ID;
+    $lang = pll_get_post_language($id);
     $serviceFirst = get_post_meta($id, 'wpcf-services-service-first', true);
     $serviceSecond = get_post_meta($id, 'wpcf-services-service-second', true);
     $serviceThird = get_post_meta($id, 'wpcf-services-service-third', true);
@@ -137,7 +138,11 @@
                     <p class="services__subtitle services__subtitle_term">2-4 дня</p>
                     <p class="services__subtitle services__subtitle_reworks">2 правки</p>
                     <h3 class="services__title services__title_price">от 100$</h3>
-                    <a class="btn services__btn">обсудить задачу</a>
+                    <?php if ($lang === 'en'): ?>
+                        <a class="btn services__btn">discuss the task</a>
+                    <?php  elseif( $lang === 'ru' ): ?>
+                        <a class="btn services__btn">обсудить задачу</a>
+                    <?php endif?>
                 </div>
             </div>
         </div>
@@ -151,7 +156,11 @@
                     <p class="services__subtitle services__subtitle_term">4-7 дней</p>
                     <p class="services__subtitle services__subtitle_reworks">5 правок</p>
                     <h3 class="services__title services__title_price">от 200$</h3>
+                    <?php if ($lang === 'en'): ?>
+                    <a class="btn services__btn">discuss the task</a>
+                    <?php  elseif( $lang === 'ru' ): ?>
                     <a class="btn services__btn">обсудить задачу</a>
+                    <?php endif?>
                 </div>
             </div>
         </div>
@@ -165,7 +174,11 @@
                     <p class="services__subtitle services__subtitle_term">7-12 дней</p>
                     <p class="services__subtitle services__subtitle_reworks">7 правок</p>
                     <h3 class="services__title services__title_price">от 400$</h3>
-                    <a class="btn services__btn">обсудить задачу</a>
+                    <?php if ($lang === 'en'): ?>
+                        <a class="btn services__btn">discuss the task</a>
+                    <?php  elseif( $lang === 'ru' ): ?>
+                        <a class="btn services__btn">обсудить задачу</a>
+                    <?php endif?>
                 </div>
             </div>
         </div>

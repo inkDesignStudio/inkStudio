@@ -7,12 +7,12 @@
 }
 .footer__inner {
   display: flex;
+  position: relative;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
   padding: 120px 32px 40px 32px;
   @media (max-width: $XS) {
-    position: relative;
     flex-direction: column;
     padding: 48px 0 0 14px;
     align-items: flex-start;
@@ -58,7 +58,13 @@
   }
 }
 .footer__icons {
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%);
   @media (max-width: $XS) {
+    position: unset;
+    right: unset;
+    transform: unset;
     margin-bottom: 120px;
   }
 }

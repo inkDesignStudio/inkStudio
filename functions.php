@@ -4,6 +4,8 @@
  */
 include_once (__DIR__.'/inc/first-marquee-widget.php');
 include_once (__DIR__.'/inc/second-marquee-widget.php');
+include_once (__DIR__.'/inc/socials-widget.php');
+include_once (__DIR__.'/inc/contacts-widget.php');
 
 add_action('init', 'spReg');
 
@@ -38,52 +40,6 @@ function newOrder() {
 }
 
 function spReg() {
-    register_post_type('works', array(
-        'labels'              => array(
-            'name'          => 'Наши работы',
-            'singular_name' => 'Работа',
-            'menu_name'     => 'Архив работ',
-            'all_items'     => 'Все работы',
-            'add_new'       => 'Добавить работу',
-            'add_new_item'  => 'Добавить новую работу',
-            'edit'          => 'Редактировать',
-            'edit_item'     => 'Редактировать работу',
-            'new_item'      => 'Новая работа',
-        ),
-        'description'         => '',
-        'public'              => true,
-        'show_in_menu'        => true,
-        'exclude_from_search' => false,
-        'capability_type'     => 'post',
-        'hierarchical'        => false,
-        'has_archive'         => 'works',
-        'supports'            => array( 'title', 'thumbnail' ),
-        'taxonomies'          => array( 'works-category' ),
-        'menu_icon'           => 'http://www.inkdesign.studio/wp-content/uploads/2020/08/small_icon.png',
-    ) );
-    register_taxonomy('works-category', array('works'), array(
-        'label'                 => 'Раздел работ', // определяется параметром $labels->name
-        'labels'                => array(
-            'name'              => 'Разделы работ',
-            'singular_name'     => 'Раздел работ',
-            'search_items'      => 'Искать Раздел работ',
-            'all_items'         => 'Все Разделы работ',
-            'parent_item'       => 'Родит. раздел работ',
-            'parent_item_colon' => 'Родит. раздел работ:',
-            'edit_item'         => 'Ред. Раздел работ',
-            'update_item'       => 'Обновить Раздел работ',
-            'add_new_item'      => 'Добавить Раздел работ',
-            'new_item_name'     => 'Новый Раздел работ',
-            'menu_name'         => 'Раздел работ',
-        ),
-        'description'           => 'Рубрики для раздела работ', // описание таксономии
-        'public'                => true,
-        'show_in_nav_menus'     => false, // равен аргументу public
-        'show_ui'               => true, // равен аргументу public
-        'show_tagcloud'         => false, // равен аргументу show_ui
-        'hierarchical'          => true,
-        'show_admin_column'     => true, // Позволить или нет авто-создание колонки таксономии в таблице ассоциированного типа записи. (с версии 3.5)
-    ) );
     register_post_type('services', array(
         'labels'              => array(
             'name'          => 'Наши услуги',
@@ -226,20 +182,25 @@ function sp_widgets_init() {
     register_sidebar([
         'name'          => 'ТЕКСТ ВТОРОЙ БЕГУЩЕЙ СТРОКИ',
         'id'            => 'second-marquee',
-        'description'   => 'НЕ добавляйте новые виджеты. Активны только виджеты inkDesign\'',
+        'description'   => 'НЕ добавляйте новые виджеты. Активны только виджеты inkDesign',
         'before_widget' => null,
         'after_widget'  => null,
     ]);
     register_widget('second_marquee_widget');
-//   register_sidebar( array(
-//      'name'          => esc_html__( 'Sidebar', 'inkStudio-theme' ),
-//      'id'            => 'sidebar-1',
-//      'description'   => esc_html__( 'Add widgets here.', 'inkStudio-theme' ),
-//      'before_widget' => '<section id="%1$s" class="widget %2$s">',
-//      'after_widget'  => '</section>',
-//      'before_title'  => '<h2 class="widget-title">',
-//      'after_title'   => '</h2>',
-//   ));
+    register_sidebar([
+        'name'          => 'Сайдбар для соц.сетей',
+        'id'            => 'socials-sidebar',
+        'description'   => 'НЕ добавляйте новые виджеты. Активны только виджеты inkDesign',
+        'before_widget' => null,
+        'after_widget'  => null,
+    ]);
+    register_sidebar([
+        'name'          => 'Сайдбар для контактов',
+        'id'            => 'contacts-sidebar',
+        'description'   => 'НЕ добавляйте новые виджеты. Активны только виджеты inkDesign',
+        'before_widget' => null,
+        'after_widget'  => null,
+    ]);
 }
 add_action( 'widgets_init', 'sp_widgets_init' );
 
@@ -249,28 +210,28 @@ function sp_scripts() {
         'style.min.css',
         get_template_directory_uri().'/style.min.css',
         [],
-        '1.2.1',
+        '1.5.1.7',
         'all'
     );
-//   wp_enqueue_style('bootstrap', get_template_directory_uri().'/css/bootstrap.css');
-//   wp_enqueue_style('cms-style', get_stylesheet_uri() );
-//   wp_enqueue_style('mediascreen', get_template_directory_uri().'/css/mediascreen.css');
-//   wp_enqueue_style('swiper', get_template_directory_uri().'/css/swiper.css');
-//   wp_enqueue_style('animate', get_template_directory_uri().'/css/animate.css');
-//   wp_enqueue_style('fontawesome', get_template_directory_uri().'/css/fontawesome-all.css');
-//
-//    wp_enqueue_script(
-//        'main.js',
-//        get_template_directory_uri().'/assets/main.js',
-//        [],
-//        '1.0.0',
-//        true
-//    );
     wp_enqueue_script(
         'main.js',
         get_template_directory_uri() . '/assets/js/main.js',
         [],
-        '1.0.4',
+        '1.0.6',
+        true
+    );
+    wp_enqueue_script(
+        'overlay.js',
+        get_template_directory_uri() . '/components/overlay/js/overlay.js',
+        [],
+        '1.0.0',
+        true
+    );
+    wp_enqueue_script(
+        'preloader.js',
+        get_template_directory_uri() . '/components/preloader/js/preloader.js',
+        [],
+        '1.2.9',
         true
     );
     wp_enqueue_script(
@@ -281,14 +242,6 @@ function sp_scripts() {
         true
     );
     wp_enqueue_script('jquery');
-//   wp_enqueue_script('swiper', get_template_directory_uri().'/js/swiper.js');
-//   wp_enqueue_script('wow', get_template_directory_uri().'/js/wow.js');
-//   wp_enqueue_script('lazyload', get_template_directory_uri().'/js/lazyload.js');
-//   wp_enqueue_script('script', get_template_directory_uri().'/js/script.js');
-//
-//   if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-//      wp_enqueue_script( 'comment-reply' );
-//   }
 }
 add_action( 'wp_enqueue_scripts', 'sp_scripts' );
 function get_component($file, $params = null, $return = false)

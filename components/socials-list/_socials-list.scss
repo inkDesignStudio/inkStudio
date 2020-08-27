@@ -1,0 +1,35 @@
+.icon {
+  display: inline-block;
+  opacity: 0.5;
+  transition: 0.4s;
+  max-width: 40px;
+  &:hover{
+    opacity: 1;
+  }
+}
+.icon__image {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+.btn {
+  padding: 18px 50px;
+  border-radius: 34px;
+  transition: 0.4s;
+  font-size: 18px;
+  &:hover{
+    cursor: pointer;
+  }
+  @media (max-width: $XS) {
+    font-size: 12px;
+    padding: 8px 15px;
+  }
+  @media (max-width: $S) {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+  @media (max-width: $M) {
+    font-size: 16px;
+    padding: 12px 25px;
+  }
+}

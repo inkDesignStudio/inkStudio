@@ -1,3 +1,4 @@
+<?php $lang = pll_current_language() ?>
 <div class="overlay">
     <div class="overlay__container">
         <?php
@@ -10,18 +11,15 @@
         <?php endforeach; ?>
     </div>
     <div class="overlay__icons">
-        <a href="#" class="overlay__icon icon">
-            <picture><source srcset="<?= getImage('bh.webp')?>" type="image/webp"><img class="icon__image" src="<? getImage('bh.png') ?>"></picture>
-        </a>
-        <a href="#" class="overlay__icon icon">
-            <picture><source srcset="<? getImage('inst.webp') ?>" type="image/webp"><img class="icon__image" src="<? getImage('inst.png') ?>"></picture>
-        </a>
-        <a href="#" class="overlay__icon icon">
-            <picture><source srcset="<? getImage('mail.webp') ?>" type="image/webp"><img class="icon__image" src="<? getImage('mail.png') ?>"></picture>
-        </a>
-        <a href="#" class="overlay__icon icon">
-            <picture><source srcset="<? getImage('in.webp') ?>" type="image/webp"><img class="icon__image" src="<? getImage('in.png') ?>"></picture>
-        </a>
+        <?php get_template_part('components/socials-list/socials-list'); ?>
     </div>
-    <div class="overlay__language">RU</div>
+    <div class="overlay__language">
+        <?php if ($lang === 'en'): ?>
+            <a href="<?= pll_home_url( $lang ) ?>" class="language__switch">EN</a>
+            <a href="<?= pll_home_url( 'ru' ); ?>" class="inactive language__switch">RU</a>
+        <?php  elseif( $lang === 'ru' ): ?>
+            <a href="<?= pll_home_url( $lang ); ?>" class="language__switch">RU</a>
+            <a href="<?= pll_home_url( 'en' ); ?>" class="inactive language__switch">EN</a>
+        <?php endif?>
+    </div>
 </div>

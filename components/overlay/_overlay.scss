@@ -21,7 +21,7 @@
   }
 }
 .overlay.active {
-  height: 100vh;
+  height: 100%;
   transition: 0.5s;
   visibility: visible;
 }
@@ -53,7 +53,7 @@
   opacity: 0;
   transition: 0.5s;
   @media (max-width: $S) {
-    bottom: 5%;
+    bottom: 20.2%;
   }
 }
 .overlay__icons.on {
@@ -66,17 +66,33 @@
   position: absolute;
   bottom: 5%;
   right: 50px;
-  opacity: 0;
+  @media (max-width: $S) {
+    bottom: 20%;
+  }
+}
+.language__switch {
   color: $main_color;
   font-style: normal;
   font-weight: bold;
   font-size: 33px;
   transition: 0.5s;
+  opacity: 1;
+  &.inactive {
+    position: absolute;
+    top: -50px;
+    right: 0;
+    opacity: 0.5;
+    &:hover {
+      opacity: 1;
+    }
+  }
   @media (max-width: $S) {
     font-size: 18px;
+    &.inactive {
+      position: absolute;
+      top: -25px;
+    }
   }
 }
-.overlay__language.on {
-  opacity: 1;
-}
+
 // OVERLAY END

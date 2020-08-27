@@ -1,33 +1,33 @@
 /* PRELOADER */
-let smile = document.querySelector(".preloader__smile");
+let preloaderSection = document.querySelector('.preloader_load');
+let line = document.querySelector('.header__line');
+let headerTitle = document.querySelector(".header__title");
+let smile = document.querySelectorAll(".preloader__smile_load");
+let preloaderBox = document.querySelector('.preloader__box_load');
 let logo = document.querySelector(".header__logo");
 let headerMenu = document.querySelector('.header__menu');
 
 document.addEventListener("DOMContentLoaded", function() {
     document.body.style.overflow = 'hidden';
     window.scrollTo(0,0);
-    setTimeout(() => headerTitle.classList.remove('active'), 0);
-    setTimeout(() => headerTitle.style.transition = 'none', 0);
-    setTimeout(() => headerTitle.style.transition = '.5s', 3000);
-    setTimeout(() => line.classList.remove('active'), 0);
-    setTimeout(() => line.classList.add('active'), 3000);
-    setTimeout(() => line.style.transition = 'none', 0);
-    setTimeout(() => smile.style.opacity = "0", 0);
-    setTimeout(() => logo.style.opacity = '0', 0);
-    setTimeout(() => logo.style.transition = 'none', 0);
-    setTimeout(() => logo.style.transition = '.5s', 3000);
-    setTimeout(() => headerMenu.style.opacity = '0', 0);
-    setTimeout(() => line.style.opacity = '0', 0);
-    setTimeout(() => headerTitle.classList.add('active'), 3000);
-    setTimeout(() => line.classList.add('active'), 3000);
-    setTimeout(() => smile.style.opacity = "1", 3000);
-    setTimeout(() => logo.style.opacity = '1', 3000);
-    setTimeout(() => headerMenu.style.opacity = '1', 3000);
-    setTimeout(() => smile.style.backgroundImage = `url(${themePath}/img/dest/smile_success.png)`, 4000);
-    setTimeout(() => document.body.style.overflow = "", 4000);
-    setTimeout(() => smile.style.backgroundSize = "contain", 4000);
-    setTimeout(() => smile.style.backgroundRepeat = "no-repeat", 4000);
-    setTimeout(() => headerTitle.classList.add('active'), 4000);
-    setTimeout(() => smile.style.backgroundImage = `url(${themePath}/img/dest/smile_loading.png)`, 5000);
+    document.body.style.overflow = 'visible';
+    window.addEventListener('load', function (event) {
+        setTimeout(function () {
+            smile[1].classList.add('active');
+            smile[0].classList.remove('active');
+        }, 500);
+        setTimeout(function () {
+            smile[1].classList.remove('active');
+            smile[0].classList.add('active');
+            logo.classList.add('active');
+            headerMenu.classList.add('active');
+            headerTitle.classList.add('active');
+            line.classList.add('active');
+            preloaderSection.style.transition = '.5s';
+            preloaderSection.classList.add('active');
+            setTimeout(() => preloaderSection.remove(), 500);
+        },
+            1000)
+    })
 });
 /* PRELOADER END */

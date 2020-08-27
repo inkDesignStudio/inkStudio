@@ -1,14 +1,14 @@
 <?php get_header();
-$image_first = get_post_meta($post->ID, "wpcf-work-image-first", true);
+$image_first =  get_post_meta($post->ID, "wpcf-work-image-first", true);
 $image_second = get_post_meta($post->ID, "wpcf-work-image-second", true);
-$image_third = get_post_meta($post->ID, "wpcf-work-image-third", true);
+$image_third =  get_post_meta($post->ID, "wpcf-work-image-third", true);
 $image_fourth = get_post_meta($post->ID, "wpcf-work-image-fourth", true);
-$image_fifth = get_post_meta($post->ID, "wpcf-work-image-fifth", true);
-$video_first = get_post_meta($post->ID, "wpcf-work-video-first", true);
+$image_fifth =  get_post_meta($post->ID, "wpcf-work-image-fifth", true);
+$video_first =  get_post_meta($post->ID, "wpcf-work-video-first", true);
 $video_second = get_post_meta($post->ID, "wpcf-work-video-second", true);
-$video_third = get_post_meta($post->ID, "wpcf-work-video-third", true);
+$video_third =  get_post_meta($post->ID, "wpcf-work-video-third", true);
 $video_fourth = get_post_meta($post->ID, "wpcf-work-video-fourth", true);
-$video_fifth = get_post_meta($post->ID, "wpcf-work-video-fifth", true);
+$video_fifth =  get_post_meta($post->ID, "wpcf-work-video-fifth", true);
 ?>
 <main style="line-height: 0;">
     <div class="portfolio__work">
@@ -63,4 +63,6 @@ $video_fifth = get_post_meta($post->ID, "wpcf-work-video-fifth", true);
         <?php } ?>
     </div>
 </main>
+<?php get_template_part('components/marquee-second/marquee-second'); ?>
+<?php get_template_part('components/services/services'); ?>
 <?php get_footer(); ?>

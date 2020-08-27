@@ -1,35 +1,33 @@
 <section id="portfolio" class="section portfolio">
     <div class="portfolio__grid">
-        <?php
-            $terms = get_terms([
-                    'taxonomy' => 'works-category',
-                    'hide_empty' => true
-            ]);
-            foreach ( $terms as $term):
-        ?>
             <?php
                 $query = new WP_Query([
-                        'post_type' => 'works',
+                        'cat=5',
                         'post_per_page' => 6,
-                        'work-category' => $term->slug
                 ]);
                 $posts = $query->posts;
                 foreach ( $posts as $post ):
                     $id = $post->ID;
                     $title = $post->post_title;
-                    $subtitle = get_post_meta($id, 'wpcf-work-subtitle', true);
+                    $subtitle = $post->post_content;
                     $videoPreview = get_post_meta($id, 'wpcf-work-video-preview', true);
+                    $lang = pll_get_post_language($id);
+
             ?>
                     <?php if ( has_post_thumbnail( $id ) === true ) { ?>
                         <div class="grid__item">
-                            <img class="grid__preview grid__preview_img" src="<?php echo the_post_thumbnail_url($id, 'full'); ?>'">
+                            <img class="grid__preview grid__preview_img" src="<?php echo the_post_thumbnail_url($id, 'full'); ?>">
                             <div class="item__inner">
                                 <?php if (!empty($title)) { ?>
                                     <h2 class="item__title title"><?php echo $title  ?></h2>
                                 <?php } ?>
                                 <?php if (!empty($subtitle)) { ?>
                                     <p class="item__subtitle subtitle"><?php echo $subtitle  ?></p>
-                                    <a href="<?php echo get_permalink($id); ?>" class="item__btn btn">подробнее</a>
+                                    <?php if ($lang === 'en'): ?>
+                                        <a href="<?php echo get_permalink($id); ?>" class="item__btn btn">more</a>
+                                    <?php  elseif( $lang === 'ru' ): ?>
+                                        <a href="<?php echo get_permalink($id); ?>" class="item__btn btn">подробнее</a>
+                                    <?php endif?>
                                 <?php } ?>
                             </div>
                         </div>
@@ -44,12 +42,15 @@
                                 <?php } ?>
                                 <?php if (!empty($subtitle)) { ?>
                                     <p class="item__subtitle subtitle"><?php echo $subtitle  ?></p>
-                                    <a href="<?php echo get_permalink($id); ?>" class="item__btn btn">подробнее</a>
+                                    <?php if ($lang === 'en'): ?>
+                                        <a href="<?php echo get_permalink($id); ?>" class="item__btn btn">more</a>
+                                    <?php  elseif( $lang === 'ru' ): ?>
+                                        <a href="<?php echo get_permalink($id); ?>" class="item__btn btn">подробнее</a>
+                                    <?php endif?>
                                 <?php } ?>
                             </div>
                         </div>
                      <?php } ?>
-                <?php endforeach; ?>
         <?php endforeach; ?>
     </div>
     <script></script>
